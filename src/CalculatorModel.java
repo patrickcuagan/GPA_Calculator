@@ -12,8 +12,10 @@ public class CalculatorModel {
 		double total_grade = 0.0;
 		
 		for(int i=0; i<units.size(); i++) {
-			total_grade += Double.parseDouble(units.get(i).getText()) * Double.parseDouble(grade.get(i).getText());
-			total_units += Double.parseDouble(units.get(i).getText());
+			if(!units.get(i).getText().equals("") && !grade.get(i).getText().equals("")) {
+				total_grade += Double.parseDouble(units.get(i).getText()) * Double.parseDouble(grade.get(i).getText());
+				total_units += Double.parseDouble(units.get(i).getText());
+			}
 		}
 		
 		return total_grade/total_units;
